@@ -1,7 +1,15 @@
 #include <iostream>
 using namespace std;
-int main(int argc, const char * argv[]) {
+
+int main() {
     
-    cout << "Hello, World!\n";
+    const int boardSize = 21;
+    
+    for (int i = 0; i < boardSize; i++) {
+        for (int j = 0; j < boardSize; j++) {
+            cout << ".";
+        }
+        cout << endl;
+    }
     return 0;
 }
