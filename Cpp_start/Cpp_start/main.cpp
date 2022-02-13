@@ -8,10 +8,10 @@ int main() {
     int n;
     cin >> n;
     char board[boardSize][boardSize];
-    int xmin = 20;
-    int xmax = 0;
-    int ymin = 20;
-    int ymax = 0;
+    int colMin = 20;
+    int colMax = 0;
+    int rowMin = 20;
+    int rowMax = 0;
     for (int i = 0; i < boardSize; i++) {
         for (int j = 0; j < boardSize; j++) {
             board[i][j] = '.';
@@ -20,32 +20,32 @@ int main() {
 
     //board[10][10] = "x";
     for (int i = 0; i < n; i++) {
-        int x; //col
-        cin >> x;
-        int y; //row
+        int y; //col
         cin >> y;
+        int x; //row
+        cin >> x;
         char a;
         cin >> a;
         
-        x = x + 10;
-        y = boardSize - (y + 10) - 1;
-        board[y][x] = a;
+        y = y + 10;
+        x = boardSize - (x + 10) - 1;
+        board[x][y] = a;
         
-        if (x < ymin) {
-            ymin = x;
+        if (x < rowMin) {
+            rowMin = x;
         }
-        if (x > ymax) {
-            ymax = x;
-        }
-        
-        if (y < xmin) {
-            xmin = y;
-        }
-        if (y > xmax) {
-            xmax = y;
+        if (x > rowMax) {
+            rowMax = x;
         }
         
-        //cout << xmin << endl << xmax << endl << ymin << endl << ymax << endl;
+        if (y < colMin) {
+            colMin = y;
+        }
+        if (y > colMax) {
+            colMax = y;
+        }
+        
+        //cout << colMin << endl << colMax << endl << rowMin << endl << rowMax << endl;
         
     }
     for (int i = 0; i < (20 + 1); i++) {
@@ -54,10 +54,10 @@ int main() {
         }
         cout << endl;
     }
-    //cout << xmin << endl << xmax << endl << ymin << endl << ymax << endl;
+    //cout << colMin << endl << colMax << endl << rowMin << endl << rowMax << endl;
     cout << endl;
-    for (int i = xmin; i < (xmax + 1); i++) {
-        for (int j = ymin; j < (ymax + 1); j++) {
+    for (int i = rowMin; i < (rowMax + 1); i++) {
+        for (int j = colMin; j < (colMax + 1); j++) {
             cout << board[i][j];
         }
         cout << endl;
